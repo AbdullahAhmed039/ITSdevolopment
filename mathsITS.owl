@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/mathsITS#"
+     xml:base="http://www.semanticweb.org/mathsITS"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mathsITS"/>
+    
+    <!-- Classes -->
+    <owl:Class rdf:about="http://www.semanticweb.org/mathsITS#Shape"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mathsITS#AreaCalculation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mathsITS#ShapeCategory"/>
+
+    <!-- Object Properties -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mathsITS#hasAreaFormula">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mathsITS#Shape"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mathsITS#AreaCalculation"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mathsITS#isPartOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mathsITS#Shape"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mathsITS#ShapeCategory"/>
+    </owl:ObjectProperty>
+    
+    <!-- Data Properties -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mathsITS#areaFormula">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mathsITS#AreaCalculation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mathsITS#categoryName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mathsITS#ShapeCategory"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Individuals -->
+    <!-- Shape Categories -->
+    <rdf:Description rdf:about="http://www.semanticweb.org/mathsITS#TwoDShapes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mathsITS#ShapeCategory"/>
+        <categoryName>2D Shapes</categoryName>
+    </rdf:Description>
+
+    <!-- Shapes -->
+    <rdf:Description rdf:about="http://www.semanticweb.org/mathsITS#Triangle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mathsITS#Shape"/>
+        <isPartOf rdf:resource="http://www.semanticweb.org/mathsITS#TwoDShapes"/>
+        <hasAreaFormula rdf:resource="http://www.semanticweb.org/mathsITS#TriangleFormula"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="http://www.semanticweb.org/mathsITS#Square">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mathsITS#Shape"/>
+        <isPartOf rdf:resource="http://www.semanticweb.org/mathsITS#TwoDShapes"/>
+        <hasAreaFormula rdf:resource="http://www.semanticweb.org/mathsITS#SquareFormula"/>
+    </rdf:Description>
+    
+    <!-- Area Formulas -->
+    <rdf:Description rdf:about="http://www.semanticweb.org/mathsITS#TriangleFormula">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mathsITS#AreaCalculation"/>
+        <areaFormula>0.5 * base * height</areaFormula>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="http://www.semanticweb.org/mathsITS#SquareFormula">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mathsITS#AreaCalculation"/>
+        <areaFormula>side * side</areaFormula>
+    </rdf:Description>
+</rdf:RDF>
